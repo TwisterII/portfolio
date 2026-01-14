@@ -1,0 +1,133 @@
+{
+  "personal": {
+    "name": "Taylor Radford",
+    "title": "Digital Product Manager",
+    "tagline": "Transforming guest experiences through digital innovation",
+    "education": "Economics, Oregon State University",
+    "certifications": ["CSPO"]
+  },
+  "about": [
+    "Certified CSPO Product Manager at Caesars Entertainment, leading the digital transformation of guest experiences through innovating online check-in, checkout, and digital key solutions.",
+    "Passionate about behavioral economics and data-driven decision making. Successfully launched cutting-edge digital experiences that measurably improve both guest satisfaction and operational efficiency."
+  ],
+  "skills": {
+    "product": [
+      "Product Strategy",
+      "AI Agents",
+      "Roadmap Management",
+      "User Research",
+      "Agile/Scrum",
+      "Stakeholder Management"
+    ],
+    "technical": [
+      "SQL",
+      "Tableau",
+      "BigQuery",
+      "Adobe Analytics",
+      "A/B Testing",
+      "Data Analytics"
+    ]
+  },
+  "experience": [
+    {
+      "level": 6,
+      "title": "Digital Product Manager",
+      "subtitle": "Booking & Arrival/Departure Experience",
+      "company": "Caesars Entertainment",
+      "dates": "Jan 2023 - Present",
+      "highlights": [
+        "Led end-to-end development and launch of cutting-edge digital check-in experience, improving guest satisfaction and operational efficiency",
+        "Translated business objectives into actionable product strategies, overseeing entire product lifecycle from ideation to execution",
+        "Identified market trends, conducted user research, and analyzed data to inform product decisions and drive continuous improvement",
+        "Managed the roadmap for two teams, delivering world-class features"
+      ]
+    },
+    {
+      "level": 5,
+      "title": "Digital Product Owner",
+      "subtitle": "Booking Engine",
+      "company": "Caesars Entertainment",
+      "dates": "Oct 2019 - Jan 2023",
+      "highlights": [
+        "Integrated 16 properties into online booking engine for the largest casino and entertainment merger in history",
+        "Drove product strategy with ecommerce leadership from concept, roadmapping, design, front-end development, launch and ongoing optimization",
+        "Led two teams responsible for realization of vision/concept for features with a customer-first approach",
+        "Delivered on-time and on-quality capabilities through careful prioritization and team review",
+        "Ran daily scrums to drive priority decisions, remove roadblocks, and communicate strategic direction"
+      ]
+    },
+    {
+      "level": 4,
+      "title": "Manager, Hotel Strategy",
+      "subtitle": "",
+      "company": "Caesars Entertainment",
+      "dates": "Jun 2017 - Oct 2019",
+      "highlights": [
+        "Created, drove, and analyzed marketing strategy for 10 hotels on the Las Vegas Strip",
+        "Monitored performance and optimized marketing approach using data-driven insights",
+        "Developed A/B testing strategy for driving bottom-line profit with marketing assets",
+        "Built reporting suite using Tableau and Excel for executive and departmental communications"
+      ]
+    },
+    {
+      "level": 3,
+      "title": "Marketing Analyst II",
+      "subtitle": "",
+      "company": "Caesars Entertainment",
+      "dates": "Feb 2016 - Jun 2017",
+      "highlights": [
+        "Used SQL, SAS, Excel, and Tableau to find stories hidden in big data captured by guest activity",
+        "Developed customer and offer analysis to evaluate how promotional offers change customer behavior",
+        "Led Las Vegas marketing analytics team through PowerPoint presentations on customer behavior and revenues",
+        "Performed deep dive analysis to understand problematic or potential areas of growth"
+      ]
+    },
+    {
+      "level": 2,
+      "title": "Slot Marketing Analyst",
+      "subtitle": "",
+      "company": "Mandalay Bay Resort and Casino",
+      "dates": "Jun 2015 - Feb 2016",
+      "highlights": [
+        "Compiled daily, weekly, monthly, and quarterly reports on casino performance",
+        "Created tiered marketing opportunities based on casino play for reinvestment purposes",
+        "Ran reports using SQL and presented using Excel or Access",
+        "Developed tools to measure demographics, preferences, and effectiveness of marketing programs"
+      ]
+    },
+    {
+      "level": 1,
+      "title": "Channel Distribution Specialist",
+      "subtitle": "",
+      "company": "MGM Resorts International",
+      "dates": "Jun 2012 - Jun 2015",
+      "highlights": [
+        "Managed hotel room and suite rates for website and 3rd party travel agents",
+        "Prepared daily managerial reports for tracking hotel revenue, room blocks, and pacing",
+        "Managed room block utilization for all market segments to maximize revenues",
+        "Configured marketing campaigns and promotions on hotel property management systems"
+      ]
+    }
+  ],
+  "achievements": [
+    {
+      "value": "16",
+      "label": "Properties integrated in largest casino merger in history"
+    },
+    {
+      "value": "10",
+      "label": "Las Vegas Strip hotels managed marketing strategy"
+    },
+    {
+      "value": "2",
+      "label": "Cross-functional teams managed simultaneously"
+    },
+    {
+      "value": "10+",
+      "label": "Years of hospitality and gaming experience"
+    }
+  ],
+  "contact": {
+    "linkedin": "https://www.linkedin.com/in/taylor-radford/"
+  }
+}
