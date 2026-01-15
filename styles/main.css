@@ -101,6 +101,36 @@
     font-size: 0.8em;
 }
 
+/* Headshot */
+.headshot-container {
+    margin-bottom: var(--space-md);
+}
+
+.headshot {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--neon-cyan);
+    box-shadow:
+        var(--glow-sm) var(--neon-cyan),
+        var(--glow-md) var(--neon-cyan);
+    filter: grayscale(100%);
+    transition:
+        filter var(--transition-normal),
+        box-shadow var(--transition-normal),
+        transform var(--transition-normal);
+}
+
+.headshot:hover {
+    filter: grayscale(0%);
+    box-shadow:
+        var(--glow-md) var(--neon-cyan),
+        var(--glow-lg) var(--neon-cyan),
+        var(--glow-xl) var(--neon-cyan);
+    transform: scale(1.05);
+}
+
 /* =============================================
    ABOUT / PLAYER SELECT SECTION
    ============================================= */
