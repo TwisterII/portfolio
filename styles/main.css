@@ -350,7 +350,7 @@
 .level-dates {
     font-family: var(--font-pixel);
     font-size: 0.5rem;
-    color: var(--text-dim);
+    color: var(--text-secondary);
     width: 100%;
     margin-top: var(--space-xs);
 }
@@ -376,7 +376,7 @@
     position: relative;
     padding-left: var(--space-md);
     margin-bottom: var(--space-sm);
-    color: var(--text-secondary);
+    color: var(--text-primary);
     font-size: 0.9rem;
     line-height: 1.6;
 }
