@@ -56,6 +56,16 @@
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 16px;
+
+    /* Background animation settings */
+    --bg-vic-opacity: 0.35;
+    --bg-atomic-opacity: 0.02;
+    --bg-suits-opacity: 0.05;
+    --bg-vic-size: 300px;
+    --bg-atomic-size: 150px;
+    --bg-animation-flicker: 8s;
+    --bg-animation-rotate: 120s;
+    --bg-animation-drift: 75s;
 }
 
 /* =============================================
@@ -98,6 +108,107 @@ body::before {
         linear-gradient(180deg, var(--cream-light) 0%, var(--cream) 100%);
     pointer-events: none;
     z-index: -1;
+}
+
+/* =============================================
+   VEGAS BACKGROUND LAYER - Decorative Elements
+   ============================================= */
+
+.vegas-background-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Atomic Starburst Repeating Pattern */
+.vegas-background-layer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='150' height='150'%3E%3Cpath fill='%23C9A227' d='M50 0 L53 44 L50 38 L47 44 Z M50 100 L47 56 L50 62 L53 56 Z M0 50 L44 47 L38 50 L44 53 Z M100 50 L56 53 L62 50 L56 47 Z M14.6 14.6 L46 46 L41 50 L46 54 Z M85.4 85.4 L54 54 L59 50 L54 46 Z M85.4 14.6 L54 46 L50 41 L46 46 Z M14.6 85.4 L46 54 L50 59 L54 54 Z'/%3E%3Ccircle cx='50' cy='50' r='8' fill='none' stroke='%23C9A227' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='3' fill='%23C9A227'/%3E%3C/svg%3E");
+    background-size: var(--bg-atomic-size) var(--bg-atomic-size);
+    background-repeat: repeat;
+    opacity: var(--bg-atomic-opacity);
+    animation: atomic-rotate var(--bg-animation-rotate) linear infinite;
+    transform-origin: center center;
+}
+
+/* Vegas Vic Silhouette */
+.vegas-background-layer::after {
+    content: '';
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+    width: var(--bg-vic-size);
+    height: calc(var(--bg-vic-size) * 1.8);
+    background-image: url("../assets/images/vegas-vic.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    opacity: var(--bg-vic-opacity);
+    animation: neon-flicker var(--bg-animation-flicker) ease-in-out infinite;
+}
+
+/* Floating Card Suits */
+.vegas-background-layer .suit {
+    position: absolute;
+    font-size: 3rem;
+    opacity: var(--bg-suits-opacity);
+    animation: float-drift var(--bg-animation-drift) ease-in-out infinite;
+}
+
+.vegas-background-layer .suit-1 {
+    top: 15%;
+    left: 5%;
+    color: var(--espresso);
+    animation-delay: 0s;
+}
+
+.vegas-background-layer .suit-2 {
+    top: 35%;
+    right: 8%;
+    color: var(--burnt-orange);
+    animation-delay: -18s;
+    animation-duration: 85s;
+}
+
+.vegas-background-layer .suit-3 {
+    bottom: 25%;
+    left: 8%;
+    color: var(--neon-coral);
+    animation-delay: -36s;
+    animation-duration: 70s;
+}
+
+.vegas-background-layer .suit-4 {
+    top: 60%;
+    left: 15%;
+    color: var(--espresso);
+    animation-delay: -54s;
+    animation-duration: 90s;
+}
+
+.vegas-background-layer .suit-5 {
+    top: 20%;
+    right: 15%;
+    color: var(--neon-coral);
+    animation-delay: -12s;
+    animation-duration: 80s;
+}
+
+.vegas-background-layer .suit-6 {
+    bottom: 40%;
+    right: 5%;
+    color: var(--espresso);
+    animation-delay: -42s;
 }
 
 /* =============================================
@@ -265,6 +376,50 @@ body::before {
 }
 
 /* =============================================
+   BACKGROUND RESPONSIVE STYLES
+   ============================================= */
+
+/* Tablet */
+@media (max-width: 768px) {
+    :root {
+        --bg-vic-opacity: 0.028;
+        --bg-atomic-opacity: 0.018;
+        --bg-suits-opacity: 0.028;
+        --bg-vic-size: 200px;
+        --bg-atomic-size: 120px;
+    }
+
+    .vegas-background-layer .suit {
+        font-size: 2.5rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    :root {
+        --bg-atomic-opacity: 0.015;
+        --bg-suits-opacity: 0.025;
+        --bg-atomic-size: 100px;
+    }
+
+    /* Hide Vegas Vic on mobile */
+    .vegas-background-layer::after {
+        display: none;
+    }
+
+    /* Reduce number of visible suits on mobile */
+    .vegas-background-layer .suit-4,
+    .vegas-background-layer .suit-5,
+    .vegas-background-layer .suit-6 {
+        display: none;
+    }
+
+    .vegas-background-layer .suit {
+        font-size: 2rem;
+    }
+}
+
+/* =============================================
    REDUCED MOTION PREFERENCES
    ============================================= */
 
@@ -277,5 +432,12 @@ body::before {
 
     html {
         scroll-behavior: auto;
+    }
+
+    /* Disable all background animations */
+    .vegas-background-layer::before,
+    .vegas-background-layer::after,
+    .vegas-background-layer .suit {
+        animation: none !important;
     }
 }
