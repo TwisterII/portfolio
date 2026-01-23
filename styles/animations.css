@@ -328,3 +328,25 @@
 .insert-coin {
     animation: coin-flash 0.8s linear infinite;
 }
+
+/* =============================================
+   GRID BACKGROUND ANIMATIONS
+   ============================================= */
+
+@keyframes grid-scroll-vertical {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(var(--grid-size));
+    }
+}
+
+@keyframes grid-scroll-horizontal {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(var(--grid-size));
+    }
+}
