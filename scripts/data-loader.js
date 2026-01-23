@@ -1,5 +1,6 @@
 /* =============================================
    DATA-LOADER.JS - Load content from resume.json
+   Vegas Theme Edition
    ============================================= */
 
 (function() {
@@ -38,7 +39,7 @@
     }
 
     // =============================================
-    // SKILLS / POWER-UPS
+    // SKILLS - THE WINNING HAND
     // =============================================
 
     function populateSkills(skills) {
@@ -47,23 +48,23 @@
 
         if (productContainer && skills.product) {
             productContainer.innerHTML = skills.product
-                .map(skill => createPowerup(skill))
+                .map(skill => createSkillChip(skill))
                 .join('');
         }
 
         if (technicalContainer && skills.technical) {
             technicalContainer.innerHTML = skills.technical
-                .map(skill => createPowerup(skill))
+                .map(skill => createSkillChip(skill))
                 .join('');
         }
     }
 
-    function createPowerup(skillName) {
-        return `<div class="powerup" role="listitem">${escapeHtml(skillName)}</div>`;
+    function createSkillChip(skillName) {
+        return `<div class="skill-chip" role="listitem">${escapeHtml(skillName)}</div>`;
     }
 
     // =============================================
-    // EXPERIENCE / LEVELS
+    // EXPERIENCE - CAREER JACKPOT
     // =============================================
 
     function populateExperience(experience) {
@@ -71,34 +72,34 @@
         if (!timeline || !experience) return;
 
         timeline.innerHTML = experience
-            .map(job => createLevelCard(job))
+            .map(job => createCareerCard(job))
             .join('');
     }
 
-    function createLevelCard(job) {
+    function createCareerCard(job) {
         const subtitle = job.subtitle ? `, ${escapeHtml(job.subtitle)}` : '';
         const highlights = job.highlights
             .map(h => `<li>${escapeHtml(h)}</li>`)
             .join('');
 
         return `
-            <article class="level-card" tabindex="0" role="button" aria-expanded="false">
-                <div class="level-header">
-                    <span class="level-number">LVL ${job.level}</span>
-                    <h3 class="level-title">${escapeHtml(job.title)}${subtitle}</h3>
-                    <span class="level-company">${escapeHtml(job.company)}</span>
-                    <span class="level-dates">${escapeHtml(job.dates)}</span>
+            <article class="career-card" tabindex="0" role="button" aria-expanded="false">
+                <div class="career-header">
+                    <span class="career-year">${escapeHtml(job.dates.split(' - ')[0])}</span>
+                    <h3 class="career-title">${escapeHtml(job.title)}${subtitle}</h3>
+                    <span class="career-company">${escapeHtml(job.company)}</span>
+                    <span class="career-dates">${escapeHtml(job.dates)}</span>
                 </div>
-                <div class="level-details">
+                <div class="career-details">
                     <ul>${highlights}</ul>
                 </div>
-                <p class="expand-hint">[ CLICK TO EXPAND ]</p>
+                <p class="expand-hint">Click to expand</p>
             </article>
         `;
     }
 
     // =============================================
-    // ACHIEVEMENTS / HIGH SCORES
+    // ACHIEVEMENTS - HALL OF FAME
     // =============================================
 
     function populateAchievements(achievements) {
@@ -106,16 +107,16 @@
         if (!board || !achievements) return;
 
         board.innerHTML = achievements
-            .map((achievement, index) => createScoreEntry(achievement, index + 1))
+            .map((achievement, index) => createAchievementEntry(achievement, index + 1))
             .join('');
     }
 
-    function createScoreEntry(achievement, rank) {
+    function createAchievementEntry(achievement, rank) {
         return `
-            <div class="score-entry" role="listitem">
-                <span class="score-rank">${rank}.</span>
-                <span class="score-value">${escapeHtml(achievement.value)}</span>
-                <span class="score-label">${escapeHtml(achievement.label)}</span>
+            <div class="achievement-entry" role="listitem">
+                <span class="achievement-rank">${rank}.</span>
+                <span class="achievement-value">${escapeHtml(achievement.value)}</span>
+                <span class="achievement-label">${escapeHtml(achievement.label)}</span>
             </div>
         `;
     }

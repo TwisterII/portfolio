@@ -1,5 +1,6 @@
 /* =============================================
    MAIN.JS - Scroll Triggers & Interactions
+   Vegas Theme Edition
    ============================================= */
 
 (function() {
@@ -26,48 +27,36 @@
         });
     }, observerOptions);
 
-    // Observer for power-up unlocking
-    const powerupObserver = new IntersectionObserver((entries) => {
+    // Observer for skill chips with staggered reveal
+    const chipObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                unlockPowerup(entry.target);
-                powerupObserver.unobserve(entry.target);
+                entry.target.classList.add('revealed');
+                chipObserver.unobserve(entry.target);
             }
         });
-    }, { ...observerOptions, threshold: 0.5 });
+    }, { ...observerOptions, threshold: 0.3 });
 
     // =============================================
-    // POWER-UP UNLOCK ANIMATION
+    // CAREER CARD EXPANSION
     // =============================================
 
-    function unlockPowerup(element) {
-        element.classList.add('unlocking');
+    function initCareerCards() {
+        const careerCards = document.querySelectorAll('.career-card');
 
-        // After animation, set to unlocked state
-        element.addEventListener('animationend', () => {
-            element.classList.remove('unlocking');
-            element.classList.add('unlocked');
-        }, { once: true });
-    }
-
-    // =============================================
-    // LEVEL CARD EXPANSION
-    // =============================================
-
-    function initLevelCards() {
-        const levelCards = document.querySelectorAll('.level-card');
-
-        levelCards.forEach(card => {
+        careerCards.forEach(card => {
             card.addEventListener('click', () => {
                 // Close other expanded cards
-                levelCards.forEach(otherCard => {
+                careerCards.forEach(otherCard => {
                     if (otherCard !== card && otherCard.classList.contains('expanded')) {
                         otherCard.classList.remove('expanded');
+                        otherCard.setAttribute('aria-expanded', 'false');
                     }
                 });
 
                 // Toggle current card
-                card.classList.toggle('expanded');
+                const isExpanded = card.classList.toggle('expanded');
+                card.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
             });
 
             // Keyboard accessibility
@@ -78,43 +67,6 @@
                 }
             });
         });
-    }
-
-    // =============================================
-    // COUNTDOWN ANIMATION
-    // =============================================
-
-    function initCountdown() {
-        const countdownEl = document.querySelector('.countdown');
-        if (!countdownEl) return;
-
-        let count = 9;
-
-        const countdownObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    startCountdown();
-                    countdownObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        countdownObserver.observe(countdownEl);
-
-        function startCountdown() {
-            const interval = setInterval(() => {
-                count--;
-                if (count >= 0) {
-                    countdownEl.textContent = count;
-                } else {
-                    clearInterval(interval);
-                    countdownEl.textContent = '!';
-                    countdownEl.style.color = 'var(--neon-green)';
-                    countdownEl.style.textShadow =
-                        'var(--glow-md) var(--neon-green), var(--glow-lg) var(--neon-green)';
-                }
-            }, 1000);
-        }
     }
 
     // =============================================
@@ -146,19 +98,19 @@
             revealObserver.observe(el);
         });
 
-        // Observe level cards
-        document.querySelectorAll('.level-card').forEach(el => {
+        // Observe career cards
+        document.querySelectorAll('.career-card').forEach(el => {
             revealObserver.observe(el);
         });
 
-        // Observe score entries
-        document.querySelectorAll('.score-entry').forEach(el => {
+        // Observe achievement entries
+        document.querySelectorAll('.achievement-entry').forEach(el => {
             revealObserver.observe(el);
         });
 
-        // Observe power-ups
-        document.querySelectorAll('.powerup').forEach(el => {
-            powerupObserver.observe(el);
+        // Observe skill chips with staggered effect
+        document.querySelectorAll('.skill-chip').forEach(el => {
+            chipObserver.observe(el);
         });
     }
 
@@ -167,20 +119,13 @@
     // =============================================
 
     function initKeyboardNav() {
-        // Make level cards focusable
-        document.querySelectorAll('.level-card').forEach(card => {
+        // Make career cards focusable (already set in HTML, but ensure it)
+        document.querySelectorAll('.career-card').forEach(card => {
             card.setAttribute('tabindex', '0');
             card.setAttribute('role', 'button');
-            card.setAttribute('aria-expanded', 'false');
-        });
-
-        // Update aria-expanded on toggle
-        document.querySelectorAll('.level-card').forEach(card => {
-            const observer = new MutationObserver(() => {
-                card.setAttribute('aria-expanded',
-                    card.classList.contains('expanded') ? 'true' : 'false');
-            });
-            observer.observe(card, { attributes: true, attributeFilter: ['class'] });
+            if (!card.hasAttribute('aria-expanded')) {
+                card.setAttribute('aria-expanded', 'false');
+            }
         });
     }
 
@@ -192,8 +137,7 @@
         // Wait for data to be loaded
         document.addEventListener('dataLoaded', () => {
             initObservers();
-            initLevelCards();
-            initCountdown();
+            initCareerCards();
             initSmoothScroll();
             initKeyboardNav();
         });
@@ -202,8 +146,7 @@
         if (document.readyState === 'complete') {
             setTimeout(() => {
                 initObservers();
-                initLevelCards();
-                initCountdown();
+                initCareerCards();
                 initSmoothScroll();
                 initKeyboardNav();
             }, 100);

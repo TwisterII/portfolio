@@ -1,0 +1,281 @@
+/* =============================================
+   VEGAS THEME - Golden Age Las Vegas Design
+   ============================================= */
+
+:root {
+    /* Primary - Desert Sunset */
+    --gold-primary: #C9A227;
+    --gold-light: #E8D48A;
+    --gold-dark: #8B6914;
+
+    /* Warm Neutrals (Light Theme) */
+    --cream-light: #FDF8F0;
+    --cream: #F5EDE0;
+    --espresso: #2D2318;
+    --warm-brown: #5C4D3C;
+
+    /* Accents */
+    --burnt-orange: #C74B16;
+    --turquoise: #3D9DA1;
+    --neon-coral: #FF6B4A;
+
+    /* Text colors */
+    --text-primary: #2D2318;
+    --text-secondary: #5C4D3C;
+    --text-muted: #8B7355;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(45, 35, 24, 0.08);
+    --shadow-md: 0 4px 12px rgba(45, 35, 24, 0.12);
+    --shadow-lg: 0 8px 24px rgba(45, 35, 24, 0.16);
+    --shadow-gold: 0 4px 20px rgba(201, 162, 39, 0.25);
+
+    /* Gold glow effects */
+    --glow-gold-sm: 0 0 8px rgba(201, 162, 39, 0.3);
+    --glow-gold-md: 0 0 16px rgba(201, 162, 39, 0.4);
+    --glow-gold-lg: 0 0 32px rgba(201, 162, 39, 0.5);
+
+    /* Typography */
+    --font-headline: 'Josefin Sans', sans-serif;
+    --font-body: 'Nunito Sans', sans-serif;
+    --font-accent: 'Playfair Display', serif;
+
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 300ms ease;
+    --transition-slow: 500ms ease-out;
+
+    /* Border radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+}
+
+/* =============================================
+   BASE STYLES
+   ============================================= */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--cream-light);
+    color: var(--text-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* =============================================
+   WARM SUNSET GRADIENT BACKGROUND
+   ============================================= */
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(ellipse at top right, rgba(201, 162, 39, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom left, rgba(199, 75, 22, 0.06) 0%, transparent 50%),
+        linear-gradient(180deg, var(--cream-light) 0%, var(--cream) 100%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* =============================================
+   GOLD TEXT EFFECTS
+   ============================================= */
+
+.gold-text {
+    color: var(--gold-primary);
+    text-shadow: 1px 1px 2px rgba(139, 105, 20, 0.2);
+}
+
+.gold-glow {
+    color: var(--gold-primary);
+    text-shadow:
+        0 0 10px rgba(201, 162, 39, 0.4),
+        0 0 20px rgba(201, 162, 39, 0.2);
+}
+
+/* =============================================
+   DECORATIVE BORDERS
+   ============================================= */
+
+.gold-border {
+    border: 2px solid var(--gold-primary);
+    box-shadow:
+        inset 0 0 0 4px var(--cream-light),
+        inset 0 0 0 6px var(--gold-light);
+}
+
+.marquee-border {
+    position: relative;
+    border: 3px solid var(--gold-primary);
+    box-shadow:
+        0 0 0 6px var(--cream-light),
+        0 0 0 8px var(--gold-light),
+        var(--shadow-lg);
+}
+
+/* =============================================
+   ACCESSIBILITY
+   ============================================= */
+
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold-primary);
+    color: var(--cream-light);
+    padding: var(--space-sm) var(--space-md);
+    font-family: var(--font-headline);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    z-index: 10000;
+    transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+    top: var(--space-sm);
+}
+
+/* Focus styles */
+:focus-visible {
+    outline: 3px solid var(--gold-primary);
+    outline-offset: 2px;
+}
+
+/* =============================================
+   STARBURST DECORATION (SVG inline)
+   ============================================= */
+
+.starburst {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23C9A227' d='M50 0 L54 42 L50 35 L46 42 Z M50 100 L46 58 L50 65 L54 58 Z M0 50 L42 46 L35 50 L42 54 Z M100 50 L58 54 L65 50 L58 46 Z M14.6 14.6 L44 44 L38 50 L44 56 Z M85.4 85.4 L56 56 L62 50 L56 44 Z M85.4 14.6 L56 44 L50 38 L44 44 Z M14.6 85.4 L44 56 L50 62 L56 56 Z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.starburst-lg {
+    width: 48px;
+    height: 48px;
+}
+
+/* =============================================
+   SECTION DIVIDER WITH STARBURST
+   ============================================= */
+
+.section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    margin: var(--space-md) 0;
+}
+
+.section-divider::before,
+.section-divider::after {
+    content: '';
+    flex: 1;
+    max-width: 120px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+}
+
+/* =============================================
+   CARD SUIT ICONS
+   ============================================= */
+
+.suit-spade::before {
+    content: '♠';
+    color: var(--espresso);
+    margin-right: var(--space-xs);
+}
+
+.suit-diamond::before {
+    content: '♦';
+    color: var(--burnt-orange);
+    margin-right: var(--space-xs);
+}
+
+.suit-heart::before {
+    content: '♥';
+    color: var(--neon-coral);
+    margin-right: var(--space-xs);
+}
+
+.suit-club::before {
+    content: '♣';
+    color: var(--espresso);
+    margin-right: var(--space-xs);
+}
+
+/* =============================================
+   ART DECO CORNERS
+   ============================================= */
+
+.deco-corners {
+    position: relative;
+}
+
+.deco-corners::before,
+.deco-corners::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-color: var(--gold-primary);
+    border-style: solid;
+}
+
+.deco-corners::before {
+    top: -4px;
+    left: -4px;
+    border-width: 3px 0 0 3px;
+}
+
+.deco-corners::after {
+    bottom: -4px;
+    right: -4px;
+    border-width: 0 3px 3px 0;
+}
+
+/* =============================================
+   REDUCED MOTION PREFERENCES
+   ============================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}

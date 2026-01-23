@@ -1,113 +1,12 @@
 /* =============================================
-   ANIMATIONS - Micro-animations & Effects
+   ANIMATIONS - Vegas Theme Elegant Effects
    ============================================= */
 
 /* =============================================
-   BLINK ANIMATIONS
+   FADE UP REVEAL (Primary scroll animation)
    ============================================= */
 
-@keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-}
-
-@keyframes blink-slow {
-    0%, 70% { opacity: 1; }
-    71%, 100% { opacity: 0.3; }
-}
-
-.blink {
-    animation: blink 1s infinite;
-}
-
-.blink-slow {
-    animation: blink-slow 2s infinite;
-}
-
-/* =============================================
-   NEON FLICKER
-   ============================================= */
-
-@keyframes neon-flicker {
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-        opacity: 1;
-        text-shadow:
-            var(--glow-sm) currentColor,
-            var(--glow-md) currentColor,
-            var(--glow-lg) currentColor;
-    }
-    20%, 24%, 55% {
-        opacity: 0.8;
-        text-shadow: none;
-    }
-}
-
-.flicker {
-    animation: neon-flicker 3s infinite;
-}
-
-/* =============================================
-   GLITCH EFFECT (for hero title)
-   ============================================= */
-
-@keyframes glitch {
-    0%, 100% {
-        transform: translate(0);
-    }
-    20% {
-        transform: translate(-2px, 2px);
-    }
-    40% {
-        transform: translate(-2px, -2px);
-    }
-    60% {
-        transform: translate(2px, 2px);
-    }
-    80% {
-        transform: translate(2px, -2px);
-    }
-}
-
-.glitch {
-    position: relative;
-}
-
-.glitch::before,
-.glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.3;
-}
-
-.glitch::before {
-    color: var(--neon-cyan);
-    animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
-    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
-    transform: translate(-2px);
-}
-
-.glitch::after {
-    color: var(--neon-pink);
-    animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse infinite;
-    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
-    transform: translate(2px);
-}
-
-/* Pause glitch on hover for readability */
-.glitch:hover::before,
-.glitch:hover::after {
-    animation-play-state: paused;
-}
-
-/* =============================================
-   SCROLL REVEAL ANIMATIONS
-   ============================================= */
-
-@keyframes reveal-up {
+@keyframes fade-up {
     from {
         opacity: 0;
         transform: translateY(30px);
@@ -115,17 +14,6 @@
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@keyframes reveal-scale {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
     }
 }
 
@@ -143,39 +31,34 @@
 }
 
 /* =============================================
-   POWER-UP UNLOCK ANIMATION
+   GOLD PULSE (Subtle glow effect)
    ============================================= */
 
-@keyframes powerup-unlock {
-    0% {
-        opacity: 0.3;
-        transform: scale(0.9);
-        filter: brightness(1);
+@keyframes gold-pulse {
+    0%, 100% {
+        box-shadow:
+            var(--shadow-md),
+            0 0 0 rgba(201, 162, 39, 0);
     }
     50% {
-        opacity: 1;
-        transform: scale(1.2);
-        filter: brightness(2);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-        filter: brightness(1);
+        box-shadow:
+            var(--shadow-md),
+            0 0 20px rgba(201, 162, 39, 0.15);
     }
 }
 
-.powerup.unlocking {
-    animation: powerup-unlock 0.5s ease-out forwards;
+.gold-pulse {
+    animation: gold-pulse 3s ease-in-out infinite;
 }
 
 /* =============================================
-   LEVEL CARD ANIMATIONS
+   CARD REVEAL (For career cards)
    ============================================= */
 
-@keyframes slide-in-left {
+@keyframes card-reveal {
     from {
         opacity: 0;
-        transform: translateX(-50px);
+        transform: translateX(-20px);
     }
     to {
         opacity: 1;
@@ -183,170 +66,221 @@
     }
 }
 
-.level-card {
+.career-card {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateX(-20px);
 }
 
-.level-card.revealed {
-    animation: slide-in-left 0.5s ease-out forwards;
+.career-card.revealed {
+    animation: card-reveal 0.5s ease-out forwards;
 }
 
-.level-card:nth-child(1) { animation-delay: 0s; }
-.level-card:nth-child(2) { animation-delay: 0.1s; }
-.level-card:nth-child(3) { animation-delay: 0.2s; }
-.level-card:nth-child(4) { animation-delay: 0.3s; }
-.level-card:nth-child(5) { animation-delay: 0.4s; }
-.level-card:nth-child(6) { animation-delay: 0.5s; }
+.career-card:nth-child(1) { animation-delay: 0s; }
+.career-card:nth-child(2) { animation-delay: 0.1s; }
+.career-card:nth-child(3) { animation-delay: 0.2s; }
+.career-card:nth-child(4) { animation-delay: 0.3s; }
+.career-card:nth-child(5) { animation-delay: 0.4s; }
+.career-card:nth-child(6) { animation-delay: 0.5s; }
 
 /* =============================================
-   SCORE ENTRY ANIMATIONS
+   CHIP IN (For skill chips)
    ============================================= */
 
-@keyframes score-pop {
+@keyframes chip-in {
     0% {
         opacity: 0;
-        transform: scale(0.5);
-    }
-    70% {
-        transform: scale(1.1);
+        transform: translateY(15px) scale(0.9);
     }
     100% {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0) scale(1);
     }
 }
 
-.score-entry {
+.skill-chip.revealed {
+    animation: chip-in 0.4s ease-out forwards;
+}
+
+/* Stagger skill chips */
+.skill-chip:nth-child(1) { animation-delay: 0s; }
+.skill-chip:nth-child(2) { animation-delay: 0.05s; }
+.skill-chip:nth-child(3) { animation-delay: 0.1s; }
+.skill-chip:nth-child(4) { animation-delay: 0.15s; }
+.skill-chip:nth-child(5) { animation-delay: 0.2s; }
+.skill-chip:nth-child(6) { animation-delay: 0.25s; }
+.skill-chip:nth-child(7) { animation-delay: 0.3s; }
+.skill-chip:nth-child(8) { animation-delay: 0.35s; }
+.skill-chip:nth-child(9) { animation-delay: 0.4s; }
+.skill-chip:nth-child(10) { animation-delay: 0.45s; }
+.skill-chip:nth-child(11) { animation-delay: 0.5s; }
+.skill-chip:nth-child(12) { animation-delay: 0.55s; }
+
+/* =============================================
+   ACHIEVEMENT REVEAL
+   ============================================= */
+
+@keyframes achievement-reveal {
+    0% {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.achievement-entry {
     opacity: 0;
 }
 
-.score-entry.revealed {
-    animation: score-pop 0.4s ease-out forwards;
+.achievement-entry.revealed {
+    animation: achievement-reveal 0.4s ease-out forwards;
 }
 
-.score-entry:nth-child(1) { animation-delay: 0s; }
-.score-entry:nth-child(2) { animation-delay: 0.15s; }
-.score-entry:nth-child(3) { animation-delay: 0.3s; }
-.score-entry:nth-child(4) { animation-delay: 0.45s; }
+.achievement-entry:nth-child(1) { animation-delay: 0s; }
+.achievement-entry:nth-child(2) { animation-delay: 0.1s; }
+.achievement-entry:nth-child(3) { animation-delay: 0.2s; }
+.achievement-entry:nth-child(4) { animation-delay: 0.3s; }
 
 /* =============================================
-   COUNTDOWN ANIMATION
+   SCROLL ARROW BOUNCE
    ============================================= */
 
-@keyframes countdown-pulse {
+@keyframes scroll-bounce {
     0%, 100% {
-        transform: scale(1);
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(8px);
         opacity: 1;
     }
-    50% {
-        transform: scale(1.1);
-        opacity: 0.8;
+}
+
+.scroll-arrow {
+    animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+/* =============================================
+   MARQUEE LIGHTS (Subtle rotation)
+   ============================================= */
+
+@keyframes marquee-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
 
-.countdown {
-    animation: countdown-pulse 1s ease-in-out infinite;
+.marquee-lights {
+    animation: marquee-rotate 30s linear infinite;
 }
 
 /* =============================================
-   TYPING EFFECT
+   STARBURST SPIN (Very subtle)
    ============================================= */
 
-@keyframes typing-cursor {
-    0%, 100% { border-right-color: var(--neon-cyan); }
-    50% { border-right-color: transparent; }
+@keyframes starburst-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-.typing-text {
-    display: inline-block;
-    border-right: 3px solid var(--neon-cyan);
-    padding-right: 5px;
-    animation: typing-cursor 0.8s step-end infinite;
+.starburst-accent {
+    animation: starburst-spin 60s linear infinite;
 }
 
 /* =============================================
-   BUTTON HOVER EFFECTS
+   BUTTON HOVER LIFT
    ============================================= */
 
-@keyframes button-glow-pulse {
+@keyframes button-glow {
     0%, 100% {
         box-shadow:
-            var(--glow-sm) var(--neon-cyan),
-            inset 0 0 10px rgba(0, 255, 255, 0.1);
+            var(--shadow-md),
+            0 0 8px rgba(201, 162, 39, 0.3);
     }
     50% {
         box-shadow:
-            var(--glow-md) var(--neon-cyan),
-            var(--glow-lg) var(--neon-cyan),
-            inset 0 0 20px rgba(0, 255, 255, 0.2);
+            var(--shadow-lg),
+            0 0 20px rgba(201, 162, 39, 0.4);
     }
 }
 
-.arcade-button.primary:focus {
-    animation: button-glow-pulse 1.5s ease-in-out infinite;
+.vegas-button.primary:focus {
+    animation: button-glow 2s ease-in-out infinite;
 }
 
 /* =============================================
-   SECTION TITLE ANIMATIONS
+   SECTION TITLE FADE IN
    ============================================= */
 
-@keyframes title-glow {
-    0%, 100% {
-        text-shadow:
-            var(--glow-sm) var(--neon-cyan),
-            var(--glow-md) var(--neon-cyan);
+@keyframes title-fade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
     }
-    50% {
-        text-shadow:
-            var(--glow-sm) var(--neon-cyan),
-            var(--glow-md) var(--neon-cyan),
-            var(--glow-lg) var(--neon-cyan),
-            var(--glow-xl) var(--neon-cyan);
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
 .section-title {
-    animation: title-glow 3s ease-in-out infinite;
+    animation: title-fade 0.8s ease-out;
 }
 
 /* =============================================
-   INSERT COIN ANIMATION
+   STARBURST FOOTER GENTLE PULSE
    ============================================= */
 
-@keyframes coin-flash {
-    0%, 49% {
+@keyframes starburst-pulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+.starburst-footer .starburst {
+    animation: starburst-pulse 4s ease-in-out infinite;
+}
+
+/* =============================================
+   REDUCED MOTION - Respect user preferences
+   ============================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal-on-scroll,
+    .career-card,
+    .skill-chip,
+    .achievement-entry {
         opacity: 1;
-        color: var(--neon-yellow);
+        transform: none;
     }
-    50%, 100% {
-        opacity: 0.5;
-        color: var(--neon-orange);
-    }
-}
 
-.insert-coin {
-    animation: coin-flash 0.8s linear infinite;
-}
-
-/* =============================================
-   GRID BACKGROUND ANIMATIONS
-   ============================================= */
-
-@keyframes grid-scroll-vertical {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(var(--grid-size));
-    }
-}
-
-@keyframes grid-scroll-horizontal {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(var(--grid-size));
+    .scroll-arrow,
+    .marquee-lights,
+    .starburst-accent,
+    .starburst-footer .starburst {
+        animation: none;
     }
 }

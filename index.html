@@ -9,93 +9,97 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Nunito+Sans:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="styles/arcade-theme.css">
+    <link rel="stylesheet" href="styles/vegas-theme.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body>
-    <!-- Animated Grid Background -->
-    <div class="grid-background" aria-hidden="true"></div>
-
     <!-- Skip to content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <!-- CRT Scanline Overlay -->
-    <div class="crt-overlay" aria-hidden="true"></div>
 
     <!-- Main Content -->
     <main id="main-content">
 
-        <!-- Section 1: Title Screen / Hero -->
+        <!-- Section 1: THE MARQUEE / Hero -->
         <section id="hero" class="section hero-section">
             <div class="container">
-                <div class="headshot-container">
+                <div class="marquee-frame">
+                    <div class="marquee-lights" aria-hidden="true"></div>
                     <img class="headshot" src="assets/images/headshot.jpg" alt="Taylor Radford">
                 </div>
-                <div class="insert-coin" aria-hidden="true">INSERT COIN</div>
-                <h1 class="hero-title glitch" data-text="TAYLOR RADFORD">TAYLOR RADFORD</h1>
-                <p class="hero-subtitle">DIGITAL PRODUCT MANAGER</p>
+                <div class="starburst-accent" aria-hidden="true"></div>
+                <h1 class="hero-title">TAYLOR RADFORD</h1>
+                <p class="hero-subtitle">Digital Product Manager</p>
                 <div class="hero-tagline">
-                    <span class="typing-text">Transforming guest experiences through digital innovation</span>
+                    <span>Transforming guest experiences through digital innovation</span>
                 </div>
-                <div class="scroll-prompt blink">
-                    <span class="arrow-down">▼</span>
-                    SCROLL TO BEGIN
-                    <span class="arrow-down">▼</span>
+                <div class="scroll-indicator">
+                    <span class="scroll-text">Discover More</span>
+                    <span class="scroll-arrow">↓</span>
                 </div>
             </div>
         </section>
 
-        <!-- Section 2: Player Select / About -->
+        <!-- Section 2: MEET YOUR HOST / About -->
         <section id="about" class="section about-section">
             <div class="container">
-                <h2 class="section-title neon-text">PLAYER SELECT</h2>
-                <div class="player-card reveal-on-scroll">
-                    <div class="player-stats">
+                <header class="section-header">
+                    <div class="section-divider">
+                        <span class="starburst"></span>
+                    </div>
+                    <h2 class="section-title">Meet Your Host</h2>
+                </header>
+                <div class="host-card reveal-on-scroll deco-corners">
+                    <div class="host-stats">
                         <div class="stat-item">
-                            <span class="stat-label">XP</span>
-                            <span class="stat-value neon-green">10+ YEARS</span>
+                            <span class="stat-label">Experience</span>
+                            <span class="stat-value">10+ Years</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-label">CLASS</span>
-                            <span class="stat-value neon-cyan">PRODUCT MANAGER</span>
+                            <span class="stat-label">Specialty</span>
+                            <span class="stat-value">Product Manager</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-label">CERT</span>
-                            <span class="stat-value neon-yellow">CSPO</span>
+                            <span class="stat-label">Certified</span>
+                            <span class="stat-value">CSPO</span>
                         </div>
                     </div>
-                    <div class="player-bio">
+                    <div class="host-bio">
                         <p>Certified CSPO Product Manager at Caesars Entertainment, leading the digital transformation of guest experiences through innovating online check-in, checkout, and digital key solutions.</p>
                         <p>Passionate about behavioral economics and data-driven decision making. Successfully launched cutting-edge digital experiences that measurably improve both guest satisfaction and operational efficiency.</p>
                     </div>
-                    <div class="player-education">
-                        <span class="badge pixel-border">
-                            <span class="badge-icon">🎓</span>
-                            Economics - Oregon State University
+                    <div class="host-education">
+                        <span class="education-badge">
+                            <span class="badge-icon starburst"></span>
+                            <span>Economics - Oregon State University</span>
                         </span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 3: Power-Ups / Skills -->
+        <!-- Section 3: THE WINNING HAND / Skills -->
         <section id="skills" class="section skills-section">
             <div class="container">
-                <h2 class="section-title neon-text">POWER-UPS COLLECTED</h2>
+                <header class="section-header">
+                    <div class="section-divider">
+                        <span class="starburst"></span>
+                    </div>
+                    <h2 class="section-title">The Winning Hand</h2>
+                </header>
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <h3 class="category-title neon-pink">PRODUCT SKILLS</h3>
-                        <div class="powerups-container" id="product-skills">
+                        <h3 class="category-title suit-spade">Product Skills</h3>
+                        <div class="skill-chips-container" id="product-skills">
                             <!-- Populated by JS -->
                         </div>
                     </div>
                     <div class="skill-category">
-                        <h3 class="category-title neon-cyan">TECHNICAL SKILLS</h3>
-                        <div class="powerups-container" id="technical-skills">
+                        <h3 class="category-title suit-diamond">Technical Skills</h3>
+                        <div class="skill-chips-container" id="technical-skills">
                             <!-- Populated by JS -->
                         </div>
                     </div>
@@ -103,43 +107,59 @@
             </div>
         </section>
 
-        <!-- Section 4: Level Progression / Career Timeline -->
+        <!-- Section 4: CAREER JACKPOT / Experience Timeline -->
         <section id="experience" class="section experience-section">
             <div class="container">
-                <h2 class="section-title neon-text">LEVELS COMPLETED</h2>
+                <header class="section-header">
+                    <div class="section-divider">
+                        <span class="starburst"></span>
+                    </div>
+                    <h2 class="section-title">Career Jackpot</h2>
+                </header>
                 <div class="timeline" id="career-timeline">
                     <!-- Populated by JS -->
                 </div>
             </div>
         </section>
 
-        <!-- Section 5: High Scores / Achievements -->
+        <!-- Section 5: HALL OF FAME / Achievements -->
         <section id="achievements" class="section achievements-section">
             <div class="container">
-                <h2 class="section-title neon-text">HIGH SCORES</h2>
-                <div class="high-scores-board" id="achievements-board">
+                <header class="section-header">
+                    <div class="section-divider">
+                        <span class="starburst"></span>
+                    </div>
+                    <h2 class="section-title">Hall of Fame</h2>
+                </header>
+                <div class="hall-of-fame-display deco-corners" id="achievements-board">
                     <!-- Populated by JS -->
                 </div>
             </div>
         </section>
 
-        <!-- Section 6: Game Over / Contact -->
+        <!-- Section 6: THE ENCORE / Contact -->
         <section id="contact" class="section contact-section">
             <div class="container">
-                <h2 class="section-title neon-text blink-slow">CONTINUE?</h2>
-                <div class="contact-prompt reveal-on-scroll">
-                    <p class="countdown">9</p>
+                <header class="section-header">
+                    <div class="section-divider">
+                        <span class="starburst"></span>
+                    </div>
+                    <h2 class="section-title">The Encore</h2>
+                </header>
+                <div class="contact-content reveal-on-scroll">
+                    <p class="thanks-script">Thanks for stopping by</p>
                     <div class="contact-buttons">
                         <a href="https://www.linkedin.com/in/taylor-radford/"
                            target="_blank"
                            rel="noopener noreferrer"
-                           class="arcade-button primary"
+                           class="vegas-button primary"
                            aria-label="Connect on LinkedIn">
-                            <span class="button-icon">▶</span>
-                            CONNECT ON LINKEDIN
+                            Connect on LinkedIn
                         </a>
                     </div>
-                    <p class="thanks-message neon-text">THANKS FOR PLAYING!</p>
+                    <div class="starburst-footer" aria-hidden="true">
+                        <span class="starburst starburst-lg"></span>
+                    </div>
                 </div>
             </div>
         </section>
