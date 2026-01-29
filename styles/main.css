@@ -581,6 +581,13 @@
         width: 100%;
         margin-top: var(--space-xs);
     }
+
+    .hero-title {
+        text-shadow:
+            0 0 3px var(--neon-pink),
+            0 0 8px var(--neon-pink);
+        letter-spacing: 2px;
+    }
 }
 
 @media (max-width: 768px) {

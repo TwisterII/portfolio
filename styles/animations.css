@@ -103,6 +103,13 @@
     animation-play-state: paused;
 }
 
+@media (max-width: 480px) {
+    .glitch::before,
+    .glitch::after {
+        opacity: 0.15;
+    }
+}
+
 /* =============================================
    SCROLL REVEAL ANIMATIONS
    ============================================= */
@@ -308,6 +315,12 @@
 
 .section-title {
     animation: title-glow 3s ease-in-out infinite;
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        animation: none;
+    }
 }
 
 /* =============================================
