@@ -91,10 +91,13 @@
     font-family: var(--font-pixel);
     font-size: clamp(0.5rem, 1.5vw, 0.7rem);
     color: var(--text-dim);
-    margin-top: var(--space-lg);
     display: flex;
     align-items: center;
     gap: var(--space-sm);
+    position: absolute;
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .arrow-down {
