@@ -1,220 +1,47 @@
-/* =============================================
-   MAIN.JS - Scroll Triggers & Interactions
-   ============================================= */
+(function () {
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-(function() {
-    'use strict';
-
-    // =============================================
-    // INTERSECTION OBSERVER FOR SCROLL ANIMATIONS
-    // =============================================
-
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    // Observer for general reveal animations
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                // Unobserve after revealing (one-time animation)
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Observer for power-up unlocking
-    const powerupObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                unlockPowerup(entry.target);
-                powerupObserver.unobserve(entry.target);
-            }
-        });
-    }, { ...observerOptions, threshold: 0.5 });
-
-    // =============================================
-    // POWER-UP UNLOCK ANIMATION
-    // =============================================
-
-    function unlockPowerup(element) {
-        element.classList.add('unlocking');
-
-        // After animation, set to unlocked state
-        element.addEventListener('animationend', () => {
-            element.classList.remove('unlocking');
-            element.classList.add('unlocked');
-        }, { once: true });
+    // Score chips count up like an arcade readout (24 steps), then settle on the real value.
+    function fmt(el, v) {
+        var dec = +el.dataset.dec || 0;
+        return (el.dataset.prefix || '') + v.toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec }) + (el.dataset.suffix || '');
     }
-
-    // =============================================
-    // LEVEL CARD EXPANSION
-    // =============================================
-
-    function initLevelCards() {
-        const levelCards = document.querySelectorAll('.level-card');
-
-        levelCards.forEach(card => {
-            card.addEventListener('click', () => {
-                // Close other expanded cards
-                levelCards.forEach(otherCard => {
-                    if (otherCard !== card && otherCard.classList.contains('expanded')) {
-                        otherCard.classList.remove('expanded');
-                    }
-                });
-
-                // Toggle current card
-                card.classList.toggle('expanded');
-            });
-
-            // Keyboard accessibility
-            card.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    card.click();
-                }
-            });
+    if (!reduce) {
+        document.querySelectorAll('.chip-value[data-to]').forEach(function (el) {
+            var to = +el.dataset.to, start = performance.now(), dur = 1200;
+            el.textContent = fmt(el, 0);
+            (function tick(now) {
+                var p = Math.min(1, (now - start) / dur);
+                el.textContent = fmt(el, to * Math.floor(p * 24) / 24);
+                if (p < 1) requestAnimationFrame(tick); else el.textContent = fmt(el, to);
+            })(start);
         });
     }
 
-    // =============================================
-    // COUNTDOWN ANIMATION
-    // =============================================
-
-    function initCountdown() {
-        const countdownEl = document.querySelector('.countdown');
-        if (!countdownEl) return;
-
-        let count = 9;
-
-        const countdownObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    startCountdown();
-                    countdownObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        countdownObserver.observe(countdownEl);
-
-        function startCountdown() {
-            const interval = setInterval(() => {
-                count--;
-                if (count >= 0) {
-                    countdownEl.textContent = count;
-                } else {
-                    clearInterval(interval);
-                    countdownEl.textContent = '!';
-                    countdownEl.style.color = 'var(--neon-green)';
-                    countdownEl.style.textShadow =
-                        'var(--glow-md) var(--neon-green), var(--glow-lg) var(--neon-green)';
-                }
+    // CONTINUE? countdown: ticks 9 -> 0 once, when scrolled into view.
+    var countdown = document.querySelector('.countdown');
+    if (countdown && !reduce) {
+        new IntersectionObserver(function (entries, observer) {
+            if (!entries[0].isIntersecting) return;
+            observer.disconnect();
+            var n = 9;
+            var timer = setInterval(function () {
+                n--;
+                countdown.textContent = n < 0 ? '!' : n;
+                if (n < 0) { clearInterval(timer); countdown.classList.add('done'); }
             }, 1000);
-        }
+        }, { threshold: 0.6 }).observe(countdown);
     }
 
-    // =============================================
-    // SMOOTH SCROLL FOR INTERNAL LINKS
-    // =============================================
-
-    function initSmoothScroll() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    }
-
-    // =============================================
-    // INITIALIZE OBSERVERS
-    // =============================================
-
-    function initObservers() {
-        // Observe reveal-on-scroll elements
-        document.querySelectorAll('.reveal-on-scroll').forEach(el => {
-            revealObserver.observe(el);
-        });
-
-        // Observe level cards
-        document.querySelectorAll('.level-card').forEach(el => {
-            revealObserver.observe(el);
-        });
-
-        // Observe score entries
-        document.querySelectorAll('.score-entry').forEach(el => {
-            revealObserver.observe(el);
-        });
-
-        // Observe power-ups
-        document.querySelectorAll('.powerup').forEach(el => {
-            powerupObserver.observe(el);
-        });
-    }
-
-    // =============================================
-    // KEYBOARD NAVIGATION
-    // =============================================
-
-    function initKeyboardNav() {
-        // Make level cards focusable
-        document.querySelectorAll('.level-card').forEach(card => {
-            card.setAttribute('tabindex', '0');
-            card.setAttribute('role', 'button');
-            card.setAttribute('aria-expanded', 'false');
-        });
-
-        // Update aria-expanded on toggle
-        document.querySelectorAll('.level-card').forEach(card => {
-            const observer = new MutationObserver(() => {
-                card.setAttribute('aria-expanded',
-                    card.classList.contains('expanded') ? 'true' : 'false');
-            });
-            observer.observe(card, { attributes: true, attributeFilter: ['class'] });
-        });
-    }
-
-    // =============================================
-    // INITIALIZATION
-    // =============================================
-
-    function init() {
-        // Wait for data to be loaded
-        document.addEventListener('dataLoaded', () => {
-            initObservers();
-            initLevelCards();
-            initCountdown();
-            initSmoothScroll();
-            initKeyboardNav();
-        });
-
-        // Fallback if data loading is synchronous or already done
-        if (document.readyState === 'complete') {
-            setTimeout(() => {
-                initObservers();
-                initLevelCards();
-                initCountdown();
-                initSmoothScroll();
-                initKeyboardNav();
-            }, 100);
-        }
-    }
-
-    // Run on DOM ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
-    }
-
+    // Easter egg: Konami code (or #cheat-codes in the URL) opens the Cheat Codes dialog.
+    var dialog = document.getElementById('cheats');
+    var code = ['arrowup', 'arrowup', 'arrowdown', 'arrowdown', 'arrowleft', 'arrowright', 'arrowleft', 'arrowright', 'b', 'a'];
+    var seen = [];
+    function open() { if (dialog && !dialog.open && dialog.showModal) dialog.showModal(); }
+    document.addEventListener('keydown', function (e) {
+        seen.push(e.key.toLowerCase());
+        seen = seen.slice(-code.length);
+        if (seen.join() === code.join()) open();
+    });
+    if (location.hash === '#cheat-codes') open();
 })();

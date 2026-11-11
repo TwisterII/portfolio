@@ -1,158 +1,617 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Taylor Radford - Digital Product Manager with 10+ years experience in hospitality tech, e-commerce, and digital transformation.">
-    <title>Taylor Radford | Digital Product Manager</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taylor Radford | Director of Product Management</title>
+    <meta
+      name="description"
+      content="Taylor Radford - Director of Product Management at Caesars Entertainment. 14 years in hotel distribution, analytics, booking, digital check-in and Digital Key."
+    />
+    <meta name="theme-color" content="#0d0f24" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Taylor Radford | Director of Product Management"
+    />
+    <meta
+      property="og:description"
+      content="Director of Product Management at Caesars Entertainment. 14 years across hotel distribution, booking and digital arrival."
+    />
+    <meta property="og:url" content="https://taylorradford.org/" />
+    <meta
+      property="og:image"
+      content="https://taylorradford.org/assets/images/headshot.jpg"
+    />
+    <meta name="twitter:card" content="summary" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect width='8' height='8' fill='%230d0f24'/%3E%3Cpath fill='%23ffd23f' d='M2 1h4v1h1v4h-1v1h-4v-1h-1v-4h1z'/%3E%3Cpath fill='%23b5502b' d='M3 2h1v4h-1z'/%3E%3C/svg%3E"
+    />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles/arcade-theme.css">
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/animations.css">
-</head>
-<body>
-    <!-- Particle Background -->
-    <canvas id="particle-canvas" aria-hidden="true"></canvas>
-
-    <!-- Animated Grid Background -->
-    <div class="grid-background" aria-hidden="true"></div>
-
-    <!-- Skip to content for accessibility -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Atkinson+Hyperlegible:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- CRT Scanline Overlay -->
-    <div class="crt-overlay" aria-hidden="true"></div>
+    <header class="hud">
+      <a class="hud-logo" href="#top" aria-label="Taylor Radford, back to top"
+        >TR</a
+      >
+      <nav class="hud-nav" aria-label="Sections">
+        <a href="#about">Player</a>
+        <a href="#bosses">Boss Fights</a>
+        <a href="#experience">Stages</a>
+      </nav>
+      <a
+        class="hud-cta"
+        href="https://www.linkedin.com/in/taylor-radford/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Connect</a
+      >
+    </header>
 
-    <!-- Main Content -->
     <main id="main-content">
+      <section id="top" class="hero">
+        <svg class="cloud cloud-a" aria-hidden="true" viewBox="0 0 24 10">
+          <use href="#cloud" />
+        </svg>
+        <svg class="cloud cloud-b" aria-hidden="true" viewBox="0 0 24 10">
+          <use href="#cloud" />
+        </svg>
+        <svg class="cloud cloud-c" aria-hidden="true" viewBox="0 0 24 10">
+          <use href="#cloud" />
+        </svg>
 
-        <!-- Section 1: Title Screen / Hero -->
-        <section id="hero" class="section hero-section">
-            <div class="container">
-                <div class="headshot-container">
-                    <img class="headshot" src="assets/images/headshot.jpg" alt="Taylor Radford">
-                </div>
-                <div class="insert-coin" aria-hidden="true">INSERT COIN</div>
-                <h1 class="hero-title glitch" data-text="TAYLOR RADFORD">TAYLOR RADFORD</h1>
-                <p class="hero-subtitle">DIGITAL PRODUCT MANAGER</p>
-                <!-- <div class="hero-tagline">
-                    <span class="typing-text">Transforming guest experiences through digital innovation</span>
-                </div> -->
-                <div class="scroll-prompt blink">
-                    <span class="arrow-down">▼</span>
-                    SCROLL TO BEGIN
-                    <span class="arrow-down">▼</span>
-                </div>
+        <div class="hero-inner">
+          <div class="portrait">
+            <img
+              src="assets/images/headshot.jpg"
+              alt="Taylor Radford"
+              width="160"
+              height="160"
+            />
+          </div>
+          <h1 class="hero-title">TAYLOR<br />RADFORD</h1>
+          <p class="hero-subtitle">Director of Product Management</p>
+          <p class="hero-claim">
+            Product leader for the end-to-end digital hospitality journey with
+            quantifiable outcomes.
+          </p>
+          <ul class="chips" aria-label="Headline results">
+            <li>
+              <span
+                class="chip-value"
+                data-to="13"
+                data-dec="0"
+                data-prefix="$"
+                data-suffix="M"
+                >$13M</span
+              ><span class="chip-label">Incremental revenue in 2024</span>
+            </li>
+            <li>
+              <span class="chip-value" data-to="20258" data-dec="0">20,258</span
+              ><span class="chip-label"
+                >Digital Keys issued through Sep 2026</span
+              >
+            </li>
+            <li>
+              <span class="chip-value" data-to="30" data-dec="0" data-prefix="~"
+                >~30</span
+              ><span class="chip-label">People led across 4 product teams</span>
+            </li>
+          </ul>
+          <a class="btn btn-start" href="#about">Press Start</a>
+        </div>
+
+        <svg
+          class="hills"
+          aria-hidden="true"
+          viewBox="0 0 320 60"
+          preserveAspectRatio="xMidYMax slice"
+        >
+          <defs>
+            <g id="cloud">
+              <rect x="8" y="0" width="8" height="2" fill="#fff" />
+              <rect x="4" y="2" width="16" height="2" fill="#fff" />
+              <rect x="2" y="4" width="20" height="2" fill="#fff" />
+              <rect x="0" y="6" width="24" height="2" fill="#fff" />
+              <rect x="0" y="8" width="24" height="2" fill="#b9d0ff" />
+            </g>
+          </defs>
+          <path
+            d="M0 60 V40 H4 H8 H12 V36 H16 H20 V32 H24 H28 H32 H36 H40 H44 H48 H52 V28 H56 H60 V24 H64 V20 H68 H72 V16 H76 H80 H84 V20 H88 V24 H92 V28 H96 V32 H100 H104 V36 H108 H112 H116 H120 H124 H128 H132 H136 H140 H144 H148 H152 H156 H160 H164 V32 H168 V28 H172 V24 H176 V20 H180 H184 V16 H188 H192 V20 H196 H200 V24 H204 V28 H208 H212 V32 H216 H220 H224 H228 H232 H236 H240 H244 V36 H248 H252 V40 H256 H260 H264 H268 H272 V36 H276 V32 H280 V28 H284 V24 H288 H292 V20 H296 H300 H304 H308 V24 H312 H316 H320 V60Z"
+            fill="#1b7a36"
+          />
+          <path
+            d="M0 60 V44 H4 H8 H12 H16 H20 H24 V40 H28 V36 H32 H36 H40 H44 V40 H48 V44 H52 V48 H56 V52 H60 H64 V48 H68 H72 H76 H80 H84 H88 H92 V44 H96 V40 H100 V36 H104 H108 H112 H116 V40 H120 V44 H124 V48 H128 H132 H136 H140 H144 H148 H152 H156 H160 H164 V44 H168 V40 H172 H176 V36 H180 H184 H188 V40 H192 V44 H196 H200 H204 H208 H212 H216 V48 H220 H224 V52 H228 H232 H236 V48 H240 V44 H244 V40 H248 V36 H252 H256 H260 V40 H264 H268 V44 H272 H276 H280 H284 H288 V48 H292 H296 V52 H300 H304 H308 V48 H312 V44 H316 V40 H320 V60Z"
+            fill="#7bea7e"
+          />
+          <path
+            d="M0 60 V44 H4 H8 H12 H16 H20 H24 V40 H28 V36 H32 H36 H40 H44 V40 H48 V44 H52 V48 H56 V52 H60 H64 V48 H68 H72 H76 H80 H84 H88 H92 V44 H96 V40 H100 V36 H104 H108 H112 H116 V40 H120 V44 H124 V48 H128 H132 H136 H140 H144 H148 H152 H156 H160 H164 V44 H168 V40 H172 H176 V36 H180 H184 H188 V40 H192 V44 H196 H200 H204 H208 H212 H216 V48 H220 H224 V52 H228 H232 H236 V48 H240 V44 H244 V40 H248 V36 H252 H256 H260 V40 H264 H268 V44 H272 H276 H280 H284 H288 V48 H292 H296 V52 H300 H304 H308 V48 H312 V44 H316 V40 H320 V60Z"
+            fill="#2fb84f"
+            transform="translate(0 4)"
+          />
+          <rect y="52" width="320" height="8" fill="#b5502b" />
+          <rect y="52" width="320" height="2" fill="#d9763f" />
+        </svg>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <h2 class="section-title">PLAYER SELECT</h2>
+          <div class="player">
+            <dl class="hud-box stats">
+              <div>
+                <dt>XP</dt>
+                <dd class="c-up">14 YEARS</dd>
+              </div>
+              <div>
+                <dt>CLASS</dt>
+                <dd class="c-cyan">PRODUCT DIRECTOR</dd>
+              </div>
+              <div>
+                <dt>PARTY</dt>
+                <dd class="c-coin">4 TEAMS<br />~30 PEOPLE</dd>
+              </div>
+              <div>
+                <dt>CERT</dt>
+                <dd class="c-coin">CSPO</dd>
+              </div>
+              <div>
+                <dt>SCHOOL</dt>
+                <dd>OREGON STATE<br />ECONOMICS</dd>
+              </div>
+              <div>
+                <dt>LOADOUT</dt>
+                <dd>
+                  KIRO &middot; CURSOR<br />CLAUDE CODE<br />COPILOT &middot;
+                  FIGMA AI
+                </dd>
+              </div>
+            </dl>
+            <div class="hud-box dialog">
+              <p>
+                Director of Product Management at Caesars Entertainment and
+                certified CSPO, leading the end-to-end digital hotel journey:
+                booking, pre-arrival, check-in, upsell, Digital Key, kiosks and
+                checkout.
+              </p>
+              <p>
+                I lead four product teams (about 30 people, through three direct
+                reports) across the booking engine, payments, check-in/out,
+                Digital Key, hotel kiosks, in-trip experience, reservation
+                management and room upgrades. Fourteen years across hotel
+                distribution, analytics, booking and digital arrival taught me
+                to start with the data.
+              </p>
+              <p class="how-i-lead">
+                <strong>HOW I LEAD</strong> I run product like an operating
+                system: analytics first, weekly releases, and frontline
+                stakeholders in every review.
+              </p>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <!-- Section 2: Player Select / About -->
-        <section id="about" class="section about-section">
-            <div class="container">
-                <h2 class="section-title neon-text">PLAYER SELECT</h2>
-                <div class="player-card reveal-on-scroll">
-                    <div class="player-stats">
-                        <div class="stat-item">
-                            <span class="stat-label">XP</span>
-                            <span class="stat-value neon-green">10+ YEARS</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">CLASS</span>
-                            <span class="stat-value neon-cyan">PRODUCT MANAGER</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">CERT</span>
-                            <span class="stat-value neon-yellow">CSPO</span>
-                        </div>
+      <section id="bosses" class="section section-violet">
+        <div class="container">
+          <h2 class="section-title">BOSS FIGHTS</h2>
+          <ol class="stages bosses">
+            <li>
+              <details class="stage boss" name="boss" open>
+                <summary>
+                  <span class="stage-lvl">BOSS 1</span>
+                  <span class="stage-main">
+                    <h3 class="stage-title">
+                      Online Check-in & Checkout: the legacy arrival tool
+                    </h3>
+                    <span class="stage-company"
+                      >Stale, project-managed, no analytics</span
+                    >
+                  </span>
+                </summary>
+                <div class="boss-body">
+                  <div>
+                    <h4 class="boss-label">THE PROBLEM</h4>
+                    <p>
+                      Arrival and departure ran on a legacy system led by
+                      project managers who saw it as a tool. It had no
+                      analytics, so nobody could say what made a guest
+                      experience better.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="boss-label">THE CALL</h4>
+                    <p>
+                      Treat arrival as a product, not a project. I instrumented
+                      it first, then shipped weekly in response to guest
+                      behavior and the changing business, on one platform with
+                      property-configurable pricing and Front Desk internal
+                      controls for operators.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="boss-label">THE RESULT</h4>
+                    <p>
+                      Guests can now skip the front desk entirely, if they
+                      choose.
+                    </p>
+                    <p class="meter-label">
+                      Monthly upsell revenue
+                      <strong>has doubled</strong> (Jan &rarr; Jun 2026)
+                    </p>
+                    <div
+                      class="meter"
+                      aria-hidden="true"
+                      style="--from: 36%; --to: 100%"
+                    >
+                      <span class="meter-from"></span
+                      ><span class="meter-fill"></span>
                     </div>
-                    <div class="player-bio">
-                        <p>Certified CSPO Product Manager at Caesars Entertainment, leading the digital transformation of guest experiences through innovating online check-in, checkout, and digital key solutions.</p>
-                        <p>Passionate about behavioral economics and data-driven decision making. Successfully launched cutting-edge digital experiences that measurably improve both guest satisfaction and operational efficiency.</p>
-                    </div>
-                    <div class="player-education">
-                        <span class="badge pixel-border">
-                            <span class="badge-icon">🎓</span>
-                            Economics - Oregon State University
-                        </span>
-                    </div>
+                    <ul class="chips chips-sm">
+                      <li>
+                        <span class="chip-value">$2M+</span
+                        ><span class="chip-label">upsell revenue in 2026</span>
+                      </li>
+                      <li>
+                        <span class="chip-value">WEEKLY</span
+                        ><span class="chip-label">code releases</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Section 3: Power-Ups / Skills -->
-        <section id="skills" class="section skills-section">
-            <div class="container">
-                <h2 class="section-title neon-text">POWER-UPS COLLECTED</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3 class="category-title neon-pink">PRODUCT SKILLS</h3>
-                        <div class="powerups-container" id="product-skills">
-                            <!-- Populated by JS -->
-                        </div>
+              </details>
+            </li>
+            <li>
+              <details class="stage boss" name="boss">
+                <summary>
+                  <span class="stage-lvl">BOSS 2</span>
+                  <span class="stage-main">
+                    <h3 class="stage-title">Digital Key: scaling safely</h3>
+                    <span class="stage-company"
+                      >Expansion was outpacing its safeguards</span
+                    >
+                  </span>
+                </summary>
+                <div class="boss-body">
+                  <div>
+                    <h4 class="boss-label">THE PROBLEM</h4>
+                    <p>
+                      Digital Key and kiosk expansion was moving fast, and a
+                      production issue exposed gaps in monitoring and testing.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="boss-label">THE CALL</h4>
+                    <p>
+                      We stepped back to build two kinds of confidence:
+                      pre-release (new regression testing) and operational
+                      (observability, alerting, runbooks). I separated
+                      software-release readiness from property rollout and set a
+                      risk-based roadmap to resume expansion.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 class="boss-label">THE RESULT</h4>
+                    <p>
+                      Less guest and agent friction, more revenue, and renewed
+                      stakeholder confidence.
+                    </p>
+                    <p class="meter-label">
+                      Mobile-app Digital Key adoption
+                      <strong>9.1% &rarr; 14%</strong> (Jun &rarr; Sep 2026)
+                    </p>
+                    <div
+                      class="meter"
+                      aria-hidden="true"
+                      style="--from: 45%; --to: 70%"
+                    >
+                      <span class="meter-from"></span
+                      ><span class="meter-fill"></span>
                     </div>
-                    <div class="skill-category">
-                        <h3 class="category-title neon-cyan">TECHNICAL SKILLS</h3>
-                        <div class="powerups-container" id="technical-skills">
-                            <!-- Populated by JS -->
-                        </div>
-                    </div>
+                    <ul class="chips chips-sm">
+                      <li>
+                        <span class="chip-value">+15%</span
+                        ><span class="chip-label">uptime, last 2 months</span>
+                      </li>
+                      <li>
+                        <span class="chip-value">22K+</span
+                        ><span class="chip-label"
+                          >keys issued through Sep 2026</span
+                        >
+                      </li>
+                      <li>
+                        <span class="chip-value">5%</span
+                        ><span class="chip-label"
+                          >reduction in front-desk traffic, with no Digital Key
+                          marketing</span
+                        >
+                      </li>
+                    </ul>
+                    <p class="fine">
+                      More front-desk reduction is expected; it becomes
+                      measurable in 2027.
+                    </p>
+                  </div>
                 </div>
-            </div>
-        </section>
+              </details>
+            </li>
+          </ol>
+        </div>
+      </section>
 
-        <!-- Section 4: Level Progression / Career Timeline -->
-        <section id="experience" class="section experience-section">
-            <div class="container">
-                <h2 class="section-title neon-text">LEVELS COMPLETED</h2>
-                <div class="timeline" id="career-timeline">
-                    <!-- Populated by JS -->
-                </div>
-            </div>
-        </section>
+      <section id="experience" class="section section-grass">
+        <div class="container">
+          <h2 class="section-title">LEVELS COMPLETED</h2>
+          <ol class="stages">
+            <li>
+              <details class="stage" name="stage" open>
+                <summary>
+                  <span class="stage-lvl">LVL 7</span>
+                  <span class="stage-main">
+                    <h3 class="stage-title">Director of Product Management</h3>
+                    <span class="stage-company">Caesars Entertainment</span>
+                  </span>
+                  <span class="stage-dates">Apr 2026 - Present</span>
+                </summary>
+                <ul class="stage-log">
+                  <li>
+                    Lead 4 product teams (~30 people) through 3 direct reports,
+                    spanning the booking engine, payments, check-in/out, Digital
+                    Key, hotel kiosks, in-trip experience, reservation
+                    management and room upgrades
+                  </li>
+                  <li>
+                    Lead product strategy across the hotel digital journey, from
+                    pre-arrival through on-property arrival and departure
+                  </li>
+                  <li>
+                    Led commercialization and expansion of a modern day arrival
+                    and departure suite of products, generating $1.09M in upsell
+                    revenue from January through June 2026, with monthly revenue
+                    growing from $115K to $320K and July pacing above $400K
+                  </li>
+                  <li>
+                    Drove Digital Key adoption: 20,258 keys issued through
+                    September 2026, with mobile-app adoption rising from 9.1% in
+                    June to 14% in September
+                  </li>
+                  <li>
+                    Built a product resiliency strategy across observability,
+                    testing, vendor dependencies, operational readiness and
+                    production safeguards, and a risk-based roadmap that
+                    separates software-release readiness from property rollout
+                  </li>
+                  <li>
+                    Established a common measurement framework for check-in
+                    volume, completion, room readiness, transaction time,
+                    upgrades, early/late checkout conversion, revenue and
+                    front-desk avoidance
+                  </li>
+                  <li>
+                    Partnered with Hotel Operations and Analytics to redefine
+                    channel-level KPIs, enabling accurate comparison of digital,
+                    kiosk and front-desk performance and revenue
+                  </li>
+                  <li>
+                    Brought property stakeholders directly into sprint reviews
+                    and product feedback, tightening the loop between frontline
+                    operations and digital teams
+                  </li>
+                  <li>
+                    Introduced agentic AI tooling (Kiro, Cursor, Claude Code,
+                    Copilot, Figma AI) into my own workflow and upskilled my
+                    Product Owners; interactive prototypes cut time-to-market
+                    from 12 weeks to 4, and teams report 45% less unplanned work
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details class="stage" name="stage">
+                <summary>
+                  <span class="stage-lvl">LVL 6</span>
+                  <span class="stage-main">
+                    <h3 class="stage-title">
+                      Product Manager, Arrival &amp; Departure
+                    </h3>
+                    <span class="stage-company">Caesars Entertainment</span>
+                  </span>
+                  <span class="stage-dates">Jan 2023 - Apr 2026</span>
+                </summary>
+                <ul class="stage-log">
+                  <li>
+                    Owned the roadmap for Caesars&rsquo; next-generation digital
+                    arrival/departure experience: Express Check-in, Express
+                    Checkout, Front Desk Admin, room assignment, upgrades,
+                    early/late checkout and integrations with kiosks and Digital
+                    Key
+                  </li>
+                  <li>
+                    Expanded Express Checkout across the Las Vegas market,
+                    including Caesars Palace, with controlled launches at Planet
+                    Hollywood and Paris Las Vegas, using measurable conversion,
+                    production monitoring and property-level go/no-go decisions
+                  </li>
+                  <li>
+                    Delivered self-service late checkout, in-stay folio access,
+                    push notifications and Caesars Rewards app integration,
+                    reducing manual front-desk intervention
+                  </li>
+                  <li>
+                    Built revenue-generating experiences around room upgrades,
+                    early check-in and late checkout, including
+                    property-configurable pricing and Caesars Rewards tier
+                    benefits
+                  </li>
+                  <li>
+                    Grew online check-in and checkout ancillary revenue to a
+                    projected $200K+ in May 2026 while expanding Express
+                    Check-in and property adoption
+                  </li>
+                  <li>
+                    Delivered Room Directions, giving Digital Key and kiosk
+                    guests turn-by-turn guidance while letting property
+                    operators manage routing rules in Front Desk Admin
+                  </li>
+                  <li>
+                    Defined product KPIs with Operations Analytics to
+                    distinguish online check-in, kiosk, legacy web check-in and
+                    front-desk channels
+                  </li>
+                  <li>
+                    Used guest-behavior analysis and frontline property feedback
+                    to find friction and connect digital conversion metrics to
+                    actual hotel operations
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details class="stage" name="stage">
+                <summary>
+                  <span class="stage-lvl">LVL 5</span>
+                  <span class="stage-main">
+                    <h3 class="stage-title">
+                      Digital Product Owner, Booking Engine
+                    </h3>
+                    <span class="stage-company">Caesars Entertainment</span>
+                  </span>
+                  <span class="stage-dates">Oct 2019 - Jan 2023</span>
+                </summary>
+                <ul class="stage-log">
+                  <li>
+                    Moved legacy Eldorado properties from RezTrip to the Caesars
+                    booking engine; in A/B testing over 3 months and 27K+
+                    visits, conversion rose 9%
+                  </li>
+                  <li>
+                    Owned digital product initiatives across the Caesars.com
+                    booking engine and Caesars Rewards app, translating guest,
+                    revenue-management and operational needs into roadmap
+                    priorities
+                  </li>
+                  <li>
+                    Led booking and payment experience improvements, including
+                    payment-provider integrations and member checkout
+                  </li>
+                  <li>
+                    Partnered with Analytics to measure the impact of
+                    payment-platform changes on booking conversion, including
+                    segmented analysis of Caesars Rewards members and mobile-app
+                    performance
+                  </li>
+                  <li>
+                    Directed UX decisions with external partners, keeping
+                    third-party capabilities consistent with the Caesars booking
+                    design system
+                  </li>
+                  <li>
+                    Led cross-functional delivery across engineering, UX,
+                    analytics, revenue management and external partners while
+                    preserving complex hotel pricing, inventory and operational
+                    requirements
+                  </li>
+                  <li>
+                    Integrated 16 properties into the online booking engine for
+                    the largest casino and entertainment merger in history
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details class="stage" name="stage">
+                <summary>
+                  <span class="stage-lvl">LVL 1-4</span>
+                  <span class="stage-main">
+                    <h3 class="stage-title">Origin Story</h3>
+                    <span class="stage-company"
+                      >MGM Resorts, Mandalay Bay, Caesars Entertainment</span
+                    >
+                  </span>
+                  <span class="stage-dates">Jun 2012 - Oct 2019</span>
+                </summary>
+                <p class="origin-intro">
+                  Distribution, then analytics, then strategy: seven years of
+                  hotel commerce is why I start every decision with the data.
+                </p>
+                <ul class="stage-log">
+                  <li>
+                    <strong>Manager, Hotel Strategy</strong> (Jun 2017 - Oct
+                    2019): ran marketing strategy for 10 Las Vegas Strip hotels
+                    and built the A/B testing and Tableau reporting that tied it
+                    to profit.
+                  </li>
+                  <li>
+                    <strong
+                      >Marketing Analyst II, Corporate Enterprise
+                      Analytics</strong
+                    >
+                    (Feb 2016 - Jun 2017): turned large-scale customer and offer
+                    data into executive recommendations and led pre/post
+                    analysis of direct marketing to improve EBITDA.
+                  </li>
+                  <li>
+                    <strong>Slot Marketing Analyst, Mandalay Bay</strong> (Jun
+                    2015 - Feb 2016): analyzed casino customer behavior with SQL
+                    and Excel and built tiered reinvestment strategies.
+                  </li>
+                  <li>
+                    <strong
+                      >Channel Distribution Specialist, MGM Resorts</strong
+                    >
+                    (Jun 2012 - Jun 2015): managed hotel rates, inventory and
+                    content across third-party distribution channels.
+                  </li>
+                </ul>
+              </details>
+            </li>
+          </ol>
+        </div>
+      </section>
 
-        <!-- Section 5: High Scores / Achievements -->
-        <section id="achievements" class="section achievements-section">
-            <div class="container">
-                <h2 class="section-title neon-text">HIGH SCORES</h2>
-                <div class="high-scores-board" id="achievements-board">
-                    <!-- Populated by JS -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 6: Game Over / Contact -->
-        <section id="contact" class="section contact-section">
-            <div class="container">
-                <h2 class="section-title neon-text blink-slow">CONTINUE?</h2>
-                <div class="contact-prompt reveal-on-scroll">
-                    <p class="countdown">9</p>
-                    <div class="contact-buttons">
-                        <a href="https://www.linkedin.com/in/taylor-radford/"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="arcade-button primary"
-                           aria-label="Connect on LinkedIn">
-                            <span class="button-icon">▶</span>
-                            CONNECT ON LINKEDIN
-                        </a>
-                    </div>
-                    <p class="thanks-message neon-text">THANKS FOR PLAYING!</p>
-                </div>
-            </div>
-        </section>
-
+      <section id="contact" class="section section-continue">
+        <div class="container">
+          <h2 class="section-title">CONTINUE?</h2>
+          <p class="countdown" aria-hidden="true">9</p>
+          <a
+            class="btn btn-start"
+            href="https://www.linkedin.com/in/taylor-radford/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Connect on LinkedIn</a
+          >
+          <p class="thanks">THANKS FOR PLAYING!</p>
+          <p class="built-with">Built with AI coding tools.</p>
+        </div>
+      </section>
     </main>
 
-    <!-- Scripts -->
-    <script src="scripts/particles.js"></script>
-    <script src="data/resume.json" type="application/json" id="resume-data"></script>
-    <script src="scripts/data-loader.js"></script>
+    <dialog id="cheats" class="cheats" aria-labelledby="cheats-title">
+      <h2 id="cheats-title" class="section-title">CHEAT CODE UNLOCKED</h2>
+      <ol class="cheat-list">
+        <li><strong>Measure before you scale.</strong></li>
+        <li><strong>Bring stakeholders into the room.</strong></li>
+        <li><strong>Separate release readiness from rollout.</strong></li>
+        <li><strong>Turn incidents into strategy.</strong></li>
+        <li>
+          <strong>Compress idea-to-evidence with AI.</strong> I taught myself to
+          code so I can judge what agents do; interactive prototypes cut
+          time-to-market from 12 weeks to 4.
+        </li>
+      </ol>
+      <form method="dialog"><button class="btn" autofocus>Close</button></form>
+    </dialog>
+
     <script src="scripts/main.js"></script>
-</body>
+  </body>
 </html>
