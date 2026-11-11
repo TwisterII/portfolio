@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(file:*)",
-      "Bash(tree:*)",
-      "WebFetch(domain:antigravity.google)"
-    ]
-  }
-}
